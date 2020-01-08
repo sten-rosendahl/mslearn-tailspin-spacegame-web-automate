@@ -132,6 +132,7 @@ stages:
       runOnce:
         deploy:
           steps: 
+          - script: 'echo "keyVaultName=$(keyVaultName)"'
           - task: AzureKeyVault@1
             inputs:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
@@ -297,4 +298,3 @@ stages:
               appName: 'tailspin-space-game-web-dev-$(uniqueSuffix)'
               connectionStrings: |
                 [{ "name": "DefaultConnection","value": "$(connectionString)","type": "SQLAzure","slotSetting": false }]
-                
